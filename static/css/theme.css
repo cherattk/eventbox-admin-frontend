@@ -1,0 +1,133 @@
+.theme-color-default .textfield{
+  background-color:#f7f9fb;
+  border-color:#edeff1;
+}
+.theme-color-default .textfield:hover{
+  border-color:#b3bcc5;
+}
+.theme-color-default .textfield:focus{  
+  background-color:#fff;
+  box-shadow:0px 1px 2px #ddd inset;
+  border-color:#dadadc;
+}
+.theme-color-default label{
+  color:#076fde;
+}
+.theme-color-default .theme-header{
+  background-color:#007bff;
+  color:#fff;
+}
+/*******************************/
+.theme-color-green label{
+  color:#079207;
+}
+.theme-color-green .theme-header{
+  background-color:#0cd639;
+  color:#fff;
+}
+.theme-color-green .textfield{
+  border-color:#adf5ad;
+  background-color:#f3fff3;
+}
+.theme-color-green .textfield:hover,
+.theme-color-green .textfield:focus{
+  border-color:#3ce63c;
+}
+
+/********************************/
+.theme-color-purple label{
+  color:#8484c5;
+}
+.theme-color-purple .theme-header{
+  background-color:#8484c5;
+  color:#fff;
+}
+.theme-color-purple .textfield{
+  border-color:#c1bcfd;
+  background-color:#f9f9fd;
+}
+.theme-color-purple .textfield:hover,
+.theme-color-purple .textfield:focus{
+  border-color:#8484c5;
+}
+
+/********************************/
+/* .theme-color-yellow label{
+  color:#d09d04;
+}
+.theme-color-yellow .theme-header{
+  background-color:#ffc107;
+  color:#fff;
+}
+.theme-color-yellow .textfield{
+  border-color:#fde889;
+  background-color:#f6ffd3;
+}
+.theme-color-yellow .textfield:hover,
+.theme-color-yellow .textfield:focus{
+  border-color:#ffde4a;
+} */
+
+/********************************/
+.theme-color-red label{
+  color:#da1212;
+}
+.theme-color-red .theme-header{
+  background-color:#fa4242;
+  color:#fff;
+}
+.theme-color-red .textfield{
+  border-color:#fbb199;
+  background-color:#fff9f6;
+}
+.theme-color-red .textfield:hover,
+.theme-color-red .textfield:focus{
+  border-color:#fd8963;
+}
+
+/*
+ theme color applyed to .textfield
+.textfield-default{
+  background-color:#f7f9fb;
+}
+.textfield-default:hover{  
+  border-color:#64b6f7;
+}
+.textfield-default:focus{
+  box-shadow:0px 1px 1px #ddd inset;
+  background-color:#fff;
+
+}
+.textfield-green{
+  border-color:#adf5ad;
+  background-color:#f3fff3;
+}
+.textfield-green:hover,
+.textfield-green:focus{
+  border-color:#3ce63c;
+}
+.textfield-purple{
+  border-color:#c1bcfd;
+  background-color:#f9f9fd;
+}
+.textfield-purple:hover,
+.textfield-purple:focus{
+  border-color:#8484c5;
+}
+.textfield-yellow{
+  border-color:#fde889;
+  background-color:#f6ffd3;
+}
+.textfield-yellow:hover,
+.textfield-yellow:focus{
+  border-color:#ffde4a;
+}
+.textfield-red{
+  border-color:#fbb199;
+  background-color:#fff9f6;
+}
+.textfield-red:hover,
+.textfield-red:focus{
+  border-color:#fd8963;
+}
+*/

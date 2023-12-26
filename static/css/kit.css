@@ -1,0 +1,54 @@
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.show {
+  display: block;
+}
+
+.hide {
+  display: none;
+}
+
+.theme-bg{
+  background-color: #3290f5;
+  color:#fff;
+}
+
+.btn-add{
+  position:relative;
+  margin-bottom:10px;
+  padding-left:35px;
+  padding-right:15px;
+  border-radius:20px;
+}
+.btn-add:before{
+  content:"+";
+  font-size:26px;
+  position:absolute;
+  top:-8px;
+  left:13px;
+}
+
+.app-modal-form .modal-content {
+  padding-left: 20px;
+  padding-right: 20px; }
+
+.app-modal-form .modal-header {
+  color: #0a53a2; }
+
+.app-modal-form .modal-footer {
+  justify-content: flex-start; }
+
+.app-modal-form label {
+  color: #0a53a2; }
+
+/* disabling bootstrap transition */
+.collapsing {
+  -webkit-transition: none;
+  transition: none;
+  display: none; }
+
+/******* end bootstrap theme */
