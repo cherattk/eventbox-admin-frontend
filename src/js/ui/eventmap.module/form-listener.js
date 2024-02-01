@@ -53,7 +53,6 @@ export default class FormListener extends React.Component {
     var self = this;
     //===============================================
     this.__listenerIdentifier.push(UIEvent.addListener('show-listener-form', function (uiEvent) {
-
       var __listener;
       var __actionForm = "";
       if (uiEvent.message.listener_id) {

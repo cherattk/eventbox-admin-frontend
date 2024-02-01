@@ -6,50 +6,52 @@
 
 const DataEvent = require('./ui-event').DataEvent;
 const config = require('../config');
-const EventMap = require('./eventmap');
+const EventMap = require("./eventmap");
 const _EventMap = new EventMap();
 
 const EventMapManager = {
 
-  loadEventMap: function (sessionToken , callback) {
+  loadEventMap: function (sessionToken, callback) {
     jQuery.ajax({
-      url : config.eventmap_url,
-      method : "GET",
-      dataType : "JSON",
-      headers : {
-        "Authorization" : 'Bearer ' + sessionToken
+      url: config.things_url,
+      method: "GET",
+      dataType: "JSON",
+      headers: {
+        "Authorization": 'Bearer ' + sessionToken
       }
     })
-    .done(function (responseData, textStatus, jqXHR) {
-      _EventMap.init(responseData);
-      callback();
-    }).fail(function (jqXHR, textStatus, errorThrown) {
+      .done(function (responseData, textStatus, jqXHR) {
+        console.log(responseData);
+        _EventMap.init(responseData);
+        callback();
+      }).fail(function (jqXHR, textStatus, errorThrown) {
         console.error('Error from EventMapManager.loadEventMap');
         console.error(textStatus);
         console.error(errorThrown);
       });
   },
 
-
-  /**
-   * EventMap Client
-   */
-  saveEventMap: function (callback) {
-    var eventMap = JSON.stringify(_EventMap.getEventMap());
-    //var eventmapFile = new File(eventMap , 'eventbox_map.txt' , {type : "plain/text"});
+  ////////////////////////////////////////////////////////////
+  addData: function (type, entity) {
+    var message = {};
+    _EventMap.setEntity(type, entity);
+    var eventName = 'update-list-' + type;
+    var self = this;
     jQuery.ajax({
-      url: config.eventmap_url,
-      method: "POST",
-      dataType : "JSON", // response format
-      processData : false,
-      data : eventMap,
+      url: url,
+      method: method,
+      dataType: "JSON", // response format
+      processData: false,
+      data: data,
       headers: {
-        "Content-Type" : "application/json; charset=UTF-8",
-        "Authorization" : "Bearer " + sessionStorage.getItem('eventbox_session')
+        "Content-Type": "application/json; charset=UTF-8",
+        "Authorization": "Bearer " + sessionStorage.getItem('eventbox_session')
       },
       data: eventMap
     }).done(function (responseData) {
-      callback(responseData);
+      self.loadEventMap(function () {
+        DataEvent.dispatch(eventName, message);
+      });
     })
       .fail(function (jqXHR, textStatus, errorThrown) {
         console.error('Error from EventMapManager.loadEventMap');
@@ -58,22 +60,9 @@ const EventMapManager = {
       });
   },
 
-  ////////////////////////////////////////////////////////////
-  addData: function (type , entity) {
-    var message = {};
-    _EventMap.setEntity(type , entity);
-    var eventName = 'update-list-' + type;
-    var self = this;
-    this.saveEventMap(function () {
-      self.loadEventMap(function () {
-        DataEvent.dispatch(eventName, message);
-      });
-    });
-  },
-
-  updateData: function (type , entity) {
+  updateData: function (type, entity) {
     // not required to call setEntity() because javascript object is modified by reference
-    _EventMap.setEntity(type , entity);
+    _EventMap.setEntity(type, entity);
     var eventName = 'update-element-' + type;
     var self = this;
     this.saveEventMap(function () {
@@ -86,11 +75,11 @@ const EventMapManager = {
   },
 
   ///////////////////////////////////////////////////////////
-  deleteData: function (type , id) {
+  deleteData: function (type, id) {
     let message = {};
     var eventName = 'update-list-' + type;
     var self = this;
-    _EventMap.removeById(type , id);
+    _EventMap.removeById(type, id);
     this.saveEventMap(function () {
       // self.loadEntityList(type, function (loadActionResponse) {
       self.loadEventMap(function () {

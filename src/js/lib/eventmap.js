@@ -74,7 +74,7 @@ module.exports = function EventMap() {
    * 
    * @returns Array<entity>
    */
-  this.getList = function (type, criteria) { 
+  this.getList = function (type, criteria) {
    
     const field = !!criteria && Object.keys(criteria);
     if (field.length > 0) {
