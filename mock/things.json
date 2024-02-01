@@ -1,0 +1,70 @@
+{
+  "service": [
+    {
+      "id": "s-1",
+      "name": "Service 1",
+      "description": "service 1 description 1"
+    },
+    {
+      "id": "s-2",
+      "name": "Service 2",
+      "description": "service 2 description 2"
+    }
+  ],
+  "event": [
+    {
+      "id": "ev-1",
+      "name": "event 1",
+      "service_id": "s-1",
+      "description": "event 1 from service 1",
+      "cloud_event": {
+        "specversion": "1.0",
+        "type": "service-1.com/event-1.type",
+        "source": "service-1.com",
+        "datacontenttype": "json"
+      }
+    },
+    {
+      "id": "ev-2",
+      "name": "event2",
+      "service_id": "s-1",
+      "description": "event 2 from service 1",
+      "cloud_event": {
+        "specversion": "1.0",
+        "type": "service-1.com/event-2.type",
+        "source": "service-1.com",
+        "datacontenttype": "json"
+      }
+    }
+  ],
+  "listener" : [
+    {
+      "id": "L-1",
+      "event_id": "ev-1",
+      "endpoint_id": ["end-1"],
+      "active": true,
+      "description": ""
+    },
+    {
+      "id": "L-2",
+      "event_id": "ev-2",
+      "endpoint_id": ["end-2"],
+      "active": false,
+      "description": ""
+    }
+  ],
+  "endpoint" : [
+    {
+      "id": "end-1",
+      "service_id" : "s-1",
+      "url": "service-1.com/listener.endpoint",
+      "active": true
+    },
+    {
+      "id": "end-2",
+      "service_id" : "s-1",
+      "url": "service-1.com/listener.endpoint",
+      "active": true
+    }
+  ]
+}
